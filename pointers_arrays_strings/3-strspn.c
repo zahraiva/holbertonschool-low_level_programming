@@ -1,11 +1,10 @@
-#include <stdio.h>
-/*
+#include "main.h"
+/**
  * _strspn - check the code
  * @s: - s
  * @accept: - accept
  * Return: Always 0.
  */
-unsigned int _strspn(char *s, char *accept);
 unsigned int _strspn(char *s, char *accept)
 {
     unsigned int count = 0;
@@ -27,19 +26,3 @@ unsigned int _strspn(char *s, char *accept)
     }
     return (count);
 }
-int main(void)
-{
-    char *s = "hello, world";
-    char *accept = "hello";
-    unsigned int result = _strspn(s, accept);
-    printf("%u\n", result);
-    return 0;
-}
-
-
-
-
-
-
-
-
