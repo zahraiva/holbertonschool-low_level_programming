@@ -1,32 +1,45 @@
-#include "main.h"
-#include <string.h>
-
-/**
- * _strspn -  gets the length of a prefix substring
- * @s: checker
- * @accept: checker
- *
- * Return: int.
+#include <stdio.h>
+/*
+ * _strspn - check the code
+ * @s: - s
+ * @accept: - accept
+ * Return: Always 0.
  */
+unsigned int _strspn(char *s, char *accept);
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0, i = 0, size2 = strlen(accept), c;
-
-	while (*(s + i))
-	{
-		for (c = 0 ; c < size2 ; c++)
-		{
-			if (*(s + i) == accept[c])
-			{
-				count = 1;
-				break;
-			}
-		}
-		if (count == 0)
-			break;
-		count = 0;
-		i++;
-	}
-
-	return (i);
+    unsigned int count = 0;
+    int i, j;
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        for (j = 0; accept[j] != '\0'; j++)
+        {
+            if (s[i] == accept[j])
+            {
+                count++;
+                break;
+            }
+        }
+        if (accept[j] == '\0')
+        {
+            break;
+        }
+    }
+    return (count);
 }
+int main(void)
+{
+    char *s = "hello, world";
+    char *accept = "hello";
+    unsigned int result = _strspn(s, accept);
+    printf("%u\n", result);
+    return 0;
+}
+
+
+
+
+
+
+
+
