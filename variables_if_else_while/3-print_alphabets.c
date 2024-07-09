@@ -7,19 +7,19 @@
  */
 int main(void)
 {
-	char kicik = 'a';
-	char boyuk = 'A';
+	char lower = 'a';
+	char upper = 'A';
 
-	while (kicik <= 'z')
+	while (lower <= 'z')
 	{
-		putchar(kicik);
-		kicik++;
+		putchar(lower);
+		lower++;
 	}
 
-	while (boyuk <= 'Z')
+	while (upper <= 'Z')
 	{
-		putchar(boyuk);
-		boyuk++;
+		putchar(upper);
+		upper++;
 	}
 	putchar('\n');
 	return (0);
