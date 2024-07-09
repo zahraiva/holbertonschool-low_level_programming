@@ -8,12 +8,12 @@
 
 int main(void)
 {
-	char ulvi = '0';
+	char a = '0';
 
-	while (ulvi <= '9')
+	while (a <= '9')
 	{
-		putchar(ulvi);
-		ulvi++;
+		putchar(a);
+		a++;
 	}
 
 	putchar ('\n');
