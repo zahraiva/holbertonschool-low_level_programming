@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * str_concat - str_concat
+ * str_concat - function for  concatenates two strings
  *
- * @s1 - str 1
- * @s2 - str 2
+ * @s1: - string 1
+ * @s2: - string 2
  *
  * Return: Always 0
  */

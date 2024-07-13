@@ -1,12 +1,12 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
 /**
- * _strdup - strdup
+ * _strdup - functions are used to duplicate a string
  *
- * @str - str
+ * @str: - string
  *
- * Return: Always 0
+ * Return: always 0
  */
 char *_strdup(char *str)
 {

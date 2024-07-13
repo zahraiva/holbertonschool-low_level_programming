@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * print_grid - prints a grid of integers
- * @grid: the address of the two dimensional grid
- * @width: width of the grid
- * @height: height of the grid
+ * alloc_grid - function for print 2d array
  *
- * Return: Nothing.
+ * @width: - width
+ * @height: - height
+ *
+ * Return: Always 0
  */
 int **alloc_grid(int width, int height)
 {
