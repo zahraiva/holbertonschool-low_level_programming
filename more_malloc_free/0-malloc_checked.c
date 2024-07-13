@@ -5,8 +5,8 @@
 
 /**
  * main - check the code
- *
- * @b - b
+ * malloc_checked - prototype that allocates memory with malloc
+ * @b: - b
  * Return: Always 0.
  */
 void *malloc_checked(unsigned int b)

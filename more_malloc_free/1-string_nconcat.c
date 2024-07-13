@@ -1,11 +1,14 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * main - check the code
+ * string_nconcat - prototype for concatenates two strings
  *
- * Return: Always 0.
+ * @s1: - string
+ * @s2: - string
+ * @n: - n
+ *
+ * Return: always 0
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
