@@ -4,7 +4,7 @@
 #include <limits.h>
 
 /**
- * main - check the code
+ * 
  * malloc_checked - prototype for allocates memory using malloc
  * @b: - b
  * Return: Always 0.
