@@ -5,7 +5,7 @@
 
 /**
  * main - check the code
- * malloc_checked - prototype that allocates memory with malloc
+ * malloc_checked - prototype for allocates memory using malloc
  * @b: - b
  * Return: Always 0.
  */
