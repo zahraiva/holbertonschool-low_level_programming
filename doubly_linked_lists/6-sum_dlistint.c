@@ -3,10 +3,10 @@
 #include "lists.h"
 
 /**
- * sum_dlistint - main
- * head: node
- * Return: s
- */
+  * sum_dlistint - get sum of the list
+  * @head: head node
+  * Return: s
+  */
 
 
 int sum_dlistint(dlistint_t *head)
