@@ -4,7 +4,7 @@
 
 /**
  * sum_dlistint - main
- * head node
+ * head: node
  * Return: s
  */
 
