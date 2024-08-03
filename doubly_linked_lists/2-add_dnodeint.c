@@ -1,19 +1,24 @@
+#include <stdlib.h>
+#include <stdio.h>
 #include "lists.h"
 /**
- * add_dnodeint - func
- * @head: adr
- * @n: val
- * Return: i
- */
-size_t dlistint_len(const dlistint_t *h)
+  * add_dnodeint - add node to double linked list
+  * @head: head node
+  * @n: new node value
+  * Return: size_t
+  */
+dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
-	size_t i = 0;
+	dlistint_t *buf;
 
-	if (!h)
-		return (0);
-	while (h)
-	{
-		h = h->next;
-		i++;
-	}
-	return (i);
+	buf = malloc(sizeof(dlistint_t));
+	if (!buf)
+		return (NULL);
+	buf->n = n;
+	buf->next = *head;
+	buf->prev = NULL;
+	if (*head)
+		(*head)->prev = buf;
+	*head = buf;
+	return (buf);
+}
