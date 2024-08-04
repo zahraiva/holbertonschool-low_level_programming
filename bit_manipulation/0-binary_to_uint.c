@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "main.h"
 /**
   * binary_to_uint - binary to unsigned int convertor
   * @b: binary data
@@ -8,19 +9,18 @@
   */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int res = 0;
-	int len = 0, i = 0;
+	unsigned int i = 0;
+	int len = 0, res = 0;
 
 	if (!b)
 		return (0);
-	while (b[len])
+	while (*(b + len))
 		len++;
-	while (b[i])
+	for (i = 0; i < len; i++)
 	{
-		if (b[i] > '1' || b[i] < '0')
+		if (*(b + i) > '1' || *(b + i) < '0')
 			return (0);
-		res += (b[i] - '0') << (len - i - 1);
-		i++;
+		res = (res << 1) + (*(b + i) - '0');
 	}
 	return (res);
 }
