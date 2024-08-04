@@ -8,7 +8,6 @@
  * @filename: name of a file
  * @text_content: content to write
  * Return: num of letters
- * 
  */
 int create_file(const char *filename, char *text_content)
 {
