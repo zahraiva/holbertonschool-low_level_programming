@@ -7,36 +7,45 @@
  * @argv: array to pointers to args
  * Return: 0
  */
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
-int red, wed, rfile, wfile, cl;
-	char *buffer;
+	int file_from, file_to;
+	int num1 = 1024, num2 = 0;
+	char buf[1024];
+
+	file_from = open(argv[1], O_RDONLY);
+	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	buffer = malloc(sizeof(char) * 1024);
-	if (buffer == NULL)
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
-	rfile = open(argv[1], O_RDONLY);
-	red = read(rfile, buffer, 1024);
-	wfile = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	do {
-		if (rfile < 0 || red < 0)
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n",
-			argv[1]), free(buffer), exit(98);
-		wed = write(wfile, buffer, red);
-		if (wfile < 0 || wed < 0)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n",
-			argv[2]), free(buffer), exit(99);
-		red = read(rfile, buffer, 1024);
-		wfile = open(argv[2], O_WRONLY | O_APPEND);
-	} while (red > 0);
-	free(buffer);
-	cl = close(rfile);
-	if (cl < 0)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", rfile), exit(100);
-	cl = close(wfile);
-	if (cl < 0)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", wfile), exit(100);
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(98);
+	}
+
+	while (num1 == 1024)
+	{
+		num1 = read(file_from, buf, 1024);
+		if (num1 == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+		num2 = write(file_to, buf, num1);
+		if (num2 < num1)
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
+	}
+	if (close(file_from) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[1]), exit(100);
+	}
+	if (close(file_to) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", argv[2]), exit(100);
+	}
 	return (0);
 }
