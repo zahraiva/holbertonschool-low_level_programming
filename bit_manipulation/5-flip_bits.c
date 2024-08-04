@@ -7,16 +7,15 @@
  * @m: second num
  * Return: num of bits needed to flip
  */
-int flip_bits(unsigned long int n, unsigned long int m)
+unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	int counter = 0;
+	unsigned long int counter = 0, x = m ^ n;
 
-	while (n || m)
+	while (x)
 	{
-		if ((n & 1) != (m & 1))
+		if (x & 1)
 			counter++;
-		n >>= 1;
-		m >>= 1;
+		x >>= 1;
 	}
-	return (counter);
+	return ((unsigned int)counter);
 }
