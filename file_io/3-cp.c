@@ -1,12 +1,16 @@
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include "main.h"
+
 /**
- * main - copy one file to another
- * @argc: count of args
- * @argv: array to pointers to args
- * Return: 0
- */
+* main - copies the content of one file to another
+* @argc: num of arguments
+* @argv: string argument
+* Return: 0
+*/
+
 int main(int argc, char *argv[])
 {
 	int file_from, file_to;
